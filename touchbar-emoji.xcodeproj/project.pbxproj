@@ -11,6 +11,7 @@
 		705146272088796100A7155E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 705146262088796100A7155E /* Assets.xcassets */; };
 		7051462A2088796100A7155E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 705146282088796100A7155E /* MainMenu.xib */; };
 		7051462D2088796100A7155E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7051462C2088796100A7155E /* main.m */; };
+		7051463720897F5A00A7155E /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7051463620897F5A00A7155E /* DFRFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,8 @@
 		7051462B2088796100A7155E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7051462C2088796100A7155E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7051462E2088796100A7155E /* touchbar_emoji.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = touchbar_emoji.entitlements; sourceTree = "<group>"; };
+		70514634208879A400A7155E /* TouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
+		7051463620897F5A00A7155E /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7051463720897F5A00A7155E /* DFRFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +44,7 @@
 			children = (
 				705146222088795F00A7155E /* touchbar-emoji */,
 				705146212088795F00A7155E /* Products */,
+				7051463520897F5900A7155E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				705146232088795F00A7155E /* AppDelegate.h */,
+				70514634208879A400A7155E /* TouchBar.h */,
 				705146242088795F00A7155E /* AppDelegate.m */,
 				705146262088796100A7155E /* Assets.xcassets */,
 				705146282088796100A7155E /* MainMenu.xib */,
@@ -63,6 +69,14 @@
 				7051462E2088796100A7155E /* touchbar_emoji.entitlements */,
 			);
 			path = "touchbar-emoji";
+			sourceTree = "<group>";
+		};
+		7051463520897F5900A7155E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7051463620897F5A00A7155E /* DFRFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +283,7 @@
 				CODE_SIGN_ENTITLEMENTS = "touchbar-emoji/touchbar_emoji.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /System/Library/PrivateFrameworks;
 				INFOPLIST_FILE = "touchbar-emoji/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -276,6 +291,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "codehex.touchbar-emoji";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Debug;
 		};
@@ -286,6 +305,7 @@
 				CODE_SIGN_ENTITLEMENTS = "touchbar-emoji/touchbar_emoji.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /System/Library/PrivateFrameworks;
 				INFOPLIST_FILE = "touchbar-emoji/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -293,6 +313,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "codehex.touchbar-emoji";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Release;
 		};
