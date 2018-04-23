@@ -19,16 +19,46 @@ NSTouchBar *_groupTouchBar;
 @implementation AppDelegate
 
 static const NSTouchBarItemIdentifier kStripButton = @"codehex.stripbtn";
+static const NSTouchBarItemIdentifier kBtn1Identifier = @"codehex.btn1";
 
 - (NSTouchBar *)groupTouchBar {
     if (!_groupTouchBar) {
         NSTouchBar *groupTouchBar = [[NSTouchBar alloc] init];
+        groupTouchBar.defaultItemIdentifiers = @[ kBtn1Identifier ];
         //groupTouchBar.defaultItemIdentifiers = @[ kButton1, kButton2 ];
         groupTouchBar.delegate = self;
         _groupTouchBar = groupTouchBar;
     }
     return _groupTouchBar;
 }
+
+- (void)osushi:(id)sender {
+    NSLog(@"🍣");
+}
+
+- (NSTouchBarItem *)touchBar:(NSTouchBar *)touchBar
+       makeItemForIdentifier:(NSTouchBarItemIdentifier)identifier
+{
+    if ([identifier isEqualToString:kBtn1Identifier]) {
+        NSCustomTouchBarItem *sushi =
+        [[NSCustomTouchBarItem alloc] initWithIdentifier:kBtn1Identifier];
+        NSButton *btn = [NSButton buttonWithTitle:@"🍣" target:self action:@selector(osushi:)];
+        sushi.view = btn;
+        btn.transparent = true;
+        return sushi;
+    }
+    
+    if ([identifier isEqualToString:kStripButton]) {
+        NSCustomTouchBarItem *beer =
+        [[NSCustomTouchBarItem alloc] initWithIdentifier:kStripButton];
+        beer.view =
+        [NSButton buttonWithTitle:@"🍺" target:self action:@selector(present:)];
+        return beer;
+    }
+    
+    return nil;
+}
+
 
 - (void)present:(id)sender {
     NSLog(@"Hello!!");
